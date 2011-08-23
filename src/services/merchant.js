@@ -112,18 +112,14 @@ var helpers = require('./helpers')
  * keyword
  * category
  * results
- * pagenumber
+ * page
  * mid
  * sort array
  * sorttype array
  */
 exports.service = function (token, params, callback) {
 	var _clean = helpers.clean(params);
-	
 	var url = exports.makeUrl (token, _clean);
-	
-	console.error(url);
-	
 	helpers.request(urls.merchantHost, url, undefined, callback);
 }
 
@@ -145,9 +141,9 @@ exports.makeUrl = function (token, params) {
 		query += 'MaxResults=' + params.results;
 	}
 		
-	if (params.pagenumber) {
+	if (params.page) {
 		query += '&';
-		query += 'pagenumber=' + params.pagenumber;
+		query += 'pagenumber=' + params.page;
 	}
 		
 	if (params.mid) {

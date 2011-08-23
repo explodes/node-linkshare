@@ -8,3 +8,6 @@ exports.linkPath = '/createcustomlink.shtml';
 
 exports.merchantHost = 'feed.linksynergy.com';
 exports.merchantPath = '/productsearch';
+
+exports.targetedHost = 'feed.linksynergy.com';
+exports.targetedPath = '/target';

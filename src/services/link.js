@@ -58,8 +58,12 @@ var helpers = require('./helpers')
  * mid
  * murl
  */
-exports.service = function (token, params, callback) {
-	 var _clean = helpers.clean(params);
-	 _clean.token = token;
-	 helpers.request(urls.linkHost, urls.linkPath, params, callback);
+exports.service = function (token, mid, murl, callback) {
+	 var path = exports.makeUrl(token, mid, murl);
+	 helpers.request(urls.linkHost, path, undefined, callback);
+}
+
+exports.makeUrl = function (token, mid, murl) {
+	var path = urls.linkPath + '?token=' + token + '&mid=' + mid + '&murl=' + murl;
+	return path;
 }
