@@ -1,0 +1,22 @@
+{
+	"name"          : "node-linkshare",
+	"version"       : "0.0.1",
+	"description"   : "Node.js Linkshare API Client.",
+	"author"        : "Evan Leis <evan@engineergod.com>",
+	"repositories"  : [
+		{
+			"type"  : "git",
+			"url"   : "git://github.com/explodes/node-linkshare.git"
+		}
+	],
+	"devDependencies" : {
+		"reut"      : ">=0.1.4",
+		"optparse"  : ">=1.0.1"
+	},
+	"dependencies"  : {
+	},
+	"main"          : "src/api.js",
+	"scripts"       : {
+		"test"      : "node test/runner.js"
+    }
+}
