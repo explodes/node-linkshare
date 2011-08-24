@@ -11,4 +11,7 @@ exports.bannerlinksHost = 'lld2.linksynergy.com';
 exports.bannerlinksPath = '/services/restLinks/getBannerLinks';
 
 exports.drmlinksHost = 'lld2.linksynergy.com';
-exports.drmlinksPath = '/services/restLinks/getBannerLinks';
+exports.drmlinksPath = '/services/restLinks/getDRMLinks';
+
+exports.productlinksHost = 'lld2.linksynergy.com';
+exports.productlinksPath = '/services/restLinks/getProductLinks';

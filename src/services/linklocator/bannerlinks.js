@@ -113,13 +113,15 @@ exports.service = function (token, parameters, callback) {
 }
 
 exports.getRestPath = function (token, parameters) {
-	return urls.bannerlinksPath + 
-			'/' + token + 
-			'/' + (parameters.mid != undefined ? parameters.mid : '-1') +
-			'/' + (parameters.category != undefined ? parameters.category : '-1') +
-			'/' + (parameters.start != undefined ? helpers.toMMDDYYYY(parameters.start) : '') +
-			'/' + (parameters.end != undefined ? helpers.toMMDDYYYY(parameters.end) : '') +
-			'/' + (parameters.size != undefined ? parameters.size : '-1') +
-			'/-1' + // campaignID defunct as of August 2011
-			'/' + (parameters.page != undefined ? parameters.page : '1');
+	var result = urls.bannerlinksPath + 
+				'/' + token + 
+				'/' + (parameters.mid != undefined ? parameters.mid : '-1') +
+				'/' + (parameters.category != undefined ? parameters.category : '-1') +
+				'/' + (parameters.start != undefined ? helpers.toMMDDYYYY(parameters.start) : '') +
+				'/' + (parameters.end != undefined ? helpers.toMMDDYYYY(parameters.end) : '') +
+				'/' + (parameters.size != undefined ? parameters.size : '-1') +
+				'/-1' + // campaignID defunct as of August 2011
+				'/' + (parameters.page != undefined ? parameters.page : '1');
+	console.log(result);
+	return result;
 }

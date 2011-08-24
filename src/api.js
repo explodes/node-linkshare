@@ -452,10 +452,10 @@ LinkshareAPI.prototype.drmlinks = function (params, callback) {
  * Parameters:
  * 
  * 	- mid      - Integer
- * 		This is the optional LinkShare Advertiser ID
+ * 		This is the required LinkShare Advertiser ID
  * 
  *	- category - Integer
- *		This is the optional Creative Category ID. It is assigned by the
+ *		This is the required Creative Category ID. It is assigned by the
  *		advertiser. Use the Creative Category feed to obtain it (not the
  *		Advertiser Category Table listed in the Publisher Help Center).
  *
