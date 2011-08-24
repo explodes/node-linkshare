@@ -28,5 +28,6 @@ var helpers = require('./helpers')
 exports.service = function (token, params, callback) {
 	var _clean = helpers.clean(params);
 	_clean.token = token;
+	_clean.reportid = 1;
 	helpers.request(urls.paymenthistoryHost, urls.paymenthistoryPath, _clean, true, callback);
 }

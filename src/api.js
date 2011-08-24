@@ -18,7 +18,10 @@ var services = require('./services')
  * - callback :: void Function(RequestError || Response error, String body, Response response) 
  * 
  * Exceptions to this rule are:
+ * 
  * api.link(String mid, String murl, callback);
+ * 
+ * api.advertiserpayments(String payid, callback);
  * 
  */
 function LinkshareAPI (apitoken, securitytoken) {
@@ -206,11 +209,22 @@ LinkshareAPI.prototype.targeted = function (params, callback) {
  * 		Network.
  */
 LinkshareAPI.prototype.paymenthistory = function (params, callback) {
-	 var _params = {};
-	 for (var prop in params)
-		 _params[prop] = params[prop];
-	 _params.reportid = 1;
 	 services.paymenthistory(this.securitytoken, params, callback);
+}
+
+/**
+ * Advertiser Payments History API
+ * 
+ * http://helpcenter.linkshare.com/publisher/getattachment.php?data=MTExOXxVc2luZyBXZWIgU2VydmljZXMgZm9yIFBheW1lbnQgUmVwb3J0cy5wZGY%3D
+ * 
+ * Parameters:
+ * 
+ * 	- payid
+ * 		This is the unique number that LinkShare assigns to every payment.
+ * 		It can be retrieved from the Payment History Summary.
+ */
+LinkshareAPI.prototype.advertiserpayments = function (payid, callback) {
+	 services.paymenthistory(this.securitytoken, payid, callback);
 }
 
 module.exports = LinkshareAPI;

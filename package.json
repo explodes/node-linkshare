@@ -1,6 +1,6 @@
 {
 	"name"          : "node-linkshare",
-	"version"       : "0.0.2",
+	"version"       : "0.0.3",
 	"description"   : "Node.js Linkshare API Client.",
 	"keywords"      : ["affiliate", "marketing", "webservice"],
 	"author"        : "Evan Leis <engineergody@yahoo.com>",
