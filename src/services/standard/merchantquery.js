@@ -158,5 +158,5 @@ exports.makeUrl = function (token, params) {
 			query += 'sort=' + params.sort[index] + '&sorttype=' + sorttype;
 		}
 	
-	return urls.merchantPath + query;
+	return urls.merchantqueryPath + query;
 }

@@ -64,6 +64,6 @@ exports.service = function (token, mid, murl, callback) {
 }
 
 exports.makeUrl = function (token, mid, murl) {
-	var path = urls.linkPath + '?token=' + token + '&mid=' + mid + '&murl=' + murl;
+	var path = urls.linkgeneratorPath + '?token=' + token + '&mid=' + mid + '&murl=' + murl;
 	return path;
 }

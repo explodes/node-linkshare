@@ -19,6 +19,6 @@ unittest.suite('linkgenerator')
 
         	var result = fixture.module.makeUrl('abc', '123', 'foo');
 
-        	test.equal(result, fixture.urls.linkPath + '?token=abc&mid=123&murl=foo');
+        	test.equal(result, fixture.urls.linkgeneratorPath + '?token=abc&mid=123&murl=foo');
         })
         ;

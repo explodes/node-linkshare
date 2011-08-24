@@ -1,11 +1,11 @@
 exports.couponHost = 'couponfeed.linksynergy.com';
 exports.couponPath = '/coupon';
 
-exports.linkHost = 'feed.linksynergy.com';
-exports.linkPath = '/createcustomlink.shtml';
+exports.linkgeneratorHost = 'feed.linksynergy.com';
+exports.linkgeneratorPath = '/createcustomlink.shtml';
 
-exports.merchantHost = 'feed.linksynergy.com';
-exports.merchantPath = '/productsearch';
+exports.merchantqueryHost = 'feed.linksynergy.com';
+exports.merchantqueryPath = '/productsearch';
 
 exports.targetedHost = 'feed.linksynergy.com';
 exports.targetedPath = '/target';
