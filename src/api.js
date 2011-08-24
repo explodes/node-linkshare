@@ -20,18 +20,20 @@ var services = require('./services')
  *  api.coupon(Object params, Function callback)
  *  api.merchantquery(Object params, Function callback)
  *  api.targeted(Object params, Function callback)
- *  api.paymenthistory(Object params, Function callback)
+ *  api.paymenthistory(Object params, Function callback) *
  *  api.textlinks(Object params, Function callback)
  *  api.bannerlinks(Object params, Function callback)
  *  api.drmlinks(Object params, Function callback)
  * 
  * Exceptions to this rule are:
  * 
- * api.linkgenerator(String mid, String murl, Function callback);
- * api.advertiserpayments(String payid, Function callback);
- * api.paymentdetail(String id, boolean isInvoiceId, Function callback)
+ * api.linkgenerator(String mid, String murl, Function callback)
+ * api.advertiserpayments(String payid, Function callback) *
+ * api.paymentdetail(String id, boolean isInvoiceId, Function callback) *
  * api.advertiserinfo(String || Integer parameter, String type, Function callback) 
  * api.creativecategories(Integer mid, Function callback)
+ * 
+ * * indicates that securetoken is required to use.
  * 
  */
 function LinkshareAPI (apitoken, securitytoken) {
