@@ -9,6 +9,7 @@ module.exports = {
 	merchant : require('./services/merchant').service,
 	targeted : require('./services/targeted').service,
 	// SECURE
-	advertiserpayments : require('./services/advertiserpayments').service,
-	paymenthistory     : require('./services/paymenthistory').service
+	advertiserpayment : require('./services/advertiserpayment').service,
+	paymentdetail     : require('./services/paymentdetail'),
+	paymenthistory    : require('./services/paymenthistory').service
 }

@@ -19,9 +19,11 @@ var services = require('./services')
  * 
  * Exceptions to this rule are:
  * 
- * api.link(String mid, String murl, callback);
+ * api.link(String mid, String murl, Function callback);
  * 
- * api.advertiserpayments(String payid, callback);
+ * api.advertiserpayments(String payid, Function callback);
+ * 
+ * api.paymentdetail(String id, boolean isInvoiceId, Function callback)
  * 
  */
 function LinkshareAPI (apitoken, securitytoken) {
@@ -223,8 +225,36 @@ LinkshareAPI.prototype.paymenthistory = function (params, callback) {
  * 		This is the unique number that LinkShare assigns to every payment.
  * 		It can be retrieved from the Payment History Summary.
  */
-LinkshareAPI.prototype.advertiserpayments = function (payid, callback) {
-	 services.paymenthistory(this.securitytoken, payid, callback);
+LinkshareAPI.prototype.advertiserpayment = function (payid, callback) {
+	 services.advertiserpayment(this.securitytoken, payid, callback);
+}
+
+/**
+ * Payment Details Report API
+ * 
+ * http://helpcenter.linkshare.com/publisher/getattachment.php?data=MTExOXxVc2luZyBXZWIgU2VydmljZXMgZm9yIFBheW1lbnQgUmVwb3J0cy5wZGY%3D
+ * 
+ * Parameters:
+ * 
+ *  - id
+ *  	This is EITHER an invoice id or payment id.
+ * 
+ * 		- payid
+ * 			This is the unique number that LinkShare assigns to every payment.
+ * 			It can be retrieved from the Payment History Summary.
+ * 
+ * 		- invoiceid
+ * 			This is the unique number that LinkShare assigns to every invoice.
+ * 			It can be retrieved from the Advertiser Payments History. If you
+ * 			include the invoiceid, the system will return payment details for
+ * 			all transactions on the invoice you specify.
+ * 
+ *  - isInvoiceId - boolean
+ *  	Whether or not the id specified is an invoice id.  If it is not, it is
+ *  	assumed to be a payid.
+ */
+LinkshareAPI.prototype.paymentdetail = function (id, isInvoiceId, callback) {
+	 services.paymentdetail(this.securitytoken, id, isInvoiceId, callback);
 }
 
 module.exports = LinkshareAPI;
