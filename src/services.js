@@ -11,6 +11,7 @@ module.exports = {
 	// SECURE
 	advertiserpayment : require('./services/secure/advertiserpayment').service,
 	paymentdetail     : require('./services/secure/paymentdetail').service,
-	paymenthistory    : require('./services/secure/paymenthistory').service
+	paymenthistory    : require('./services/secure/paymenthistory').service,
 	// LINKLOCATOR
+	advertiserinfo : require('./services/linklocator/advertiserinfo').service
 }

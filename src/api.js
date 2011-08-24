@@ -263,6 +263,37 @@ LinkshareAPI.prototype.paymentdetail = function (id, isInvoiceId, callback) {
 
 // { LINK LOCATOR DIRECT
 
-
+/**
+ * Advertiser Info API
+ * 
+ * http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
+ * 
+ * Parameters:
+ * 
+ * 	- parameter - String || Integer
+ * 		Either a mid, category id, merchant name, or application status. The
+ * 		actual type of value is indicated by type.
+ * 
+ * 	- type      - String
+ * 		The type of parameter.
+ * 		- mid      - To search by Merchant ID
+ * 		- name     - To search by Merchant Name
+ * 		- category - To search by Merchant Category
+ * 		- status   - To search by application status
+ * 
+ *  Valid application statuses are:
+ *  
+ *  approved          - Your application to join this advertiser’s program has been approved.
+ *  approval extended - The advertiser has extended a Private Offer to you.
+ *  perm rejected     - Your application to join this advertiser’s program has been permanently rejected. You will not be able to reapply.
+ *  perm removed      - The advertiser has removed you from their program permanently. You will not be able to reapply.
+ *  self removed      - You have removed yourself from this advertiser’s program. You can reapply to it whenever you would like to.
+ *  temp removed      - The advertiser has removed you from their program temporarily.You will be able to reapply after 14 days.
+ *  temp rejected     - Your application to join this program has been temporarily rejected by the advertiser. You will be able to reapply after 14 days.
+ *  wait              - Your application to join this program is pending approval from the advertiser.
+ */
+LinshareAPI.prototype.advertiserinfo = function (parameter, type, callback) {
+	services.advertiserinfo(this.apitoken, parameter, type, callback);
+}
 
 module.exports = LinkshareAPI;
