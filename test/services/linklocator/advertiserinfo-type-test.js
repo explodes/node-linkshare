@@ -7,7 +7,7 @@ function logTest(test) {
 	console.log('TEST #%d: %s', ++testNo, test.desc);
 }
 
-unittest.suite('link')
+unittest.suite('advertiserinfo')
         .startup(function (fixture, done) {
         	// Called before EVERY test begins.
         	fixture.module = require('../../../src/services/linklocator/advertiserinfo');
