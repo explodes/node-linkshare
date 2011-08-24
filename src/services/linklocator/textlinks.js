@@ -10,7 +10,9 @@
  * campaignID
  * 		This feature was retired in August 2011.
  * categoryID
- * 		The Creative Category ID for this text link, assigned by the advertiser. Use the Creative Category request to obtain it (not the Advertiser Category Table listed in the Publisher Help Center).
+ * 		The Creative Category ID for this text link, assigned by the advertiser.
+ * 		Use the Creative Category request to obtain it (not the Advertiser
+ * 		Category Table listed in the Publisher Help Center).
  * categoryName
  * 		The category name for the product or service promoted by this text link
  * linkID

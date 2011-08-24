@@ -25,6 +25,7 @@ NOTE: APICallback means void Function(Object error, String result, HttpResponse 
  *  api.targeted(Object params, Function callback)
  *  api.paymenthistory(Object params, Function callback)
  *  api.textlinks(Object params, Function callback)
+ *  api.bannerlinks(Object params, Function callback)
  * 
  * Exceptions to this rule are:
  * 
@@ -321,6 +322,66 @@ void creativecategories(Integer mid, APICallback callback)
  *		helps you organize them.
  */
 void textlinks(Object params, APICallback callback)
+
+/**
+ * Banner Links API
+ * 
+ * http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
+ * 
+ * Parameters:
+ * 
+ * 	- mid      - Integer
+ * 		This is the optional LinkShare Advertiser ID
+ * 
+ *	- category - Integer
+ *		This is the optional Creative Category ID. It is assigned by the
+ *		advertiser. Use the Creative Category feed to obtain it (not the
+ *		Advertiser Category Table listed in the Publisher Help Center).
+ *
+ *	- start    - Date || String
+ *		This is the optional start date for the creative, formatted MMDDYYYY.
+ *
+ *	- end      - Date || String
+ *		This is the optional end date for the creative, formatted MMDDYYYY.
+ *
+ *	- size     - Integer
+ *		This is the optional banner size code
+ *
+ *	- page     - Integer
+ *		This is the optional page number of the results. On queries with a large number
+ *		of results, the system returns 10,000 results per page. This parameter
+ *		helps you organize them.
+ *
+ *	Valid sizes:
+ *
+ * Size code	Width	Height	Name
+ * 1			468		60		Full Banner
+ * 2			392		72		Mid Banner
+ * 9			160		600		Wd Skyscrp
+ * 10			120		600		Skyscraper
+ * 11			180		150		Rectangle
+ * 12			336		280		Large Rect
+ * 3			234		60		Half Banner
+ * 13			300		250		Med Rect
+ * 14			250		250		Sq Pop-up
+ * 15			240		400		Vert Rect
+ * 4			125		125		Sq Button
+ * 5			120		90		Button 1
+ * 6			120		60		Button 2
+ * 7			88		31		Micro Bar
+ * 8			120		240		Vert Banner
+ * 0			0		0		Other
+ * 16			728		90		Leader-board
+ * 17			720		300		Pop-Under
+ * 18			550		480		Pop-Up Large
+ * 19			300		600		Half Page Ad
+ * 20			305		64		X-Large
+ * 21			215		64		Large
+ * 22			167		30		Medium
+ * 23			112		20		Small
+ * 24			0		0		Other
+ */
+void bannerlinks(Object params, APICallback callback)
 
 
 

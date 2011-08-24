@@ -14,6 +14,7 @@ module.exports = {
 	paymenthistory    : require('./services/secure/paymenthistory').service,
 	// LINKLOCATOR
 	advertiserinfo     : require('./services/linklocator/advertiserinfo').service,
+	bannerlinks        : require('./services/linklocator/bannerlinks').service,
 	creativecategories : require('./services/linklocator/creativecategories').service,
 	textlinks          : require('./services/linklocator/textlinks').service
 }

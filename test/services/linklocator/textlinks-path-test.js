@@ -42,7 +42,6 @@ unittest.suite('textlinks')
 
         	test.equal(result, fixture.urls.textlinksPath + '/abc/-1/-1/01082011//-1/1');
         })
-        
         .test('getRestPath("abc", {end: 123}) => "path/abc/-1/-1//123/-1/1"', function (test, fixture) {
         	logTest(test);
 
@@ -57,7 +56,6 @@ unittest.suite('textlinks')
 
         	test.equal(result, fixture.urls.textlinksPath + '/abc/-1/-1//01082011/-1/1');
         })
-        
         .test('getRestPath("abc", {page: 5}) => "path/abc/-1/-1///-1/5"', function (test, fixture) {
         	logTest(test);
 
