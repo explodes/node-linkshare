@@ -122,6 +122,5 @@ exports.getRestPath = function (token, parameters) {
 				'/' + (parameters.size != undefined ? parameters.size : '-1') +
 				'/-1' + // campaignID defunct as of August 2011
 				'/' + (parameters.page != undefined ? parameters.page : '1');
-	console.log(result);
 	return result;
 }

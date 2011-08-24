@@ -86,40 +86,35 @@ exports.clean = function (parameters) {
  * callback = void Function (error, results, response);
  */
 exports.request = function (host, path, parameters, secure, callback) {
-	
 	if (parameters)
 		path = path + '?' + querystring.stringify(parameters);
 	
 	var options = {
 	   host: host,
-       port: 80,
-       path: path,
-       method: 'GET'
-	};
+       path: path
+    };
 	
-	var error, response, results = '';
-	
-	var func = secure ? https.request : http.request
+	var error, response, results = '', func = secure ? https.get : http.get
 	
 	var request = func(options, function (res) {
 		response = res;
-		
 		res.on('data', function (chunk) {
 			results += chunk;
-		});
-		
-		res.on('error', function (err) {
+		})
+		.on('error', function (err) {
 			error = err;
+		})
+		.on('end', function () {
+			if (callback) {
+				if (error || response.statusCode == 200)
+					callback (error, results, response);
+				else
+					callback(response, results, response);
+			}
 		});
-		
-		res.on('end', function () {
-			if (error || response.statusCode == 200)
-				callback (error, results, response);
-			else
-				callback(response, results, response);
-		});
-		
-	});
+	})
+	.on('error', function (err) {
+		error = err;
+	});;
 	
-	request.end();
 }
