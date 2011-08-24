@@ -1,5 +1,3 @@
-NOTE: This package, as well as this file, is under heavy development.
-
 var linkshare = require('node-linkshare');
 
 var token = 'foo token';
