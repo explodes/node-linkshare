@@ -120,7 +120,7 @@ var helpers = require('./helpers')
 exports.service = function (token, params, callback) {
 	var _clean = helpers.clean(params);
 	var url = exports.makeUrl (token, _clean);
-	helpers.request(urls.merchantHost, url, undefined, callback);
+	helpers.request(urls.merchantHost, url, undefined, false, callback);
 }
 
 exports.makeUrl = function (token, params) {

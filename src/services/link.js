@@ -60,7 +60,7 @@ var helpers = require('./helpers')
  */
 exports.service = function (token, mid, murl, callback) {
 	 var path = exports.makeUrl(token, mid, murl);
-	 helpers.request(urls.linkHost, path, undefined, callback);
+	 helpers.request(urls.linkHost, path, undefined, false, callback);
 }
 
 exports.makeUrl = function (token, mid, murl) {

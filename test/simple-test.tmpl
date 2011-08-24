@@ -1,0 +1,32 @@
+var unittest = require('reut');
+
+var settings = require('./testsettings');
+
+var testNo = 0;
+function logTest(test) {
+	console.log('TEST #%d: %s', ++testNo, test.desc);
+}
+
+unittest.suite('Some test suite.')
+        .startup(function (fixture, done) {
+        	// Called before EVERY test begins.
+        	done();
+        })
+        .setup(function (fixture, done) {
+        	// Called before EACH test begins.
+        	done();
+        })
+        .teardown(function (fixture, done) {
+        	// Called after EACH test ends.
+        	done();
+        })
+        .shutdown(function (fixture, done) {
+        	// Called after EVERY test ends.
+        	done();
+        })
+        .test('Some test.', function (test, fixture) {
+        	logTest(test);
+
+        	test.equal('a', 'b', '"a" does not equal "b");
+        })
+        ;

@@ -57,5 +57,5 @@ var helpers = require('./helpers')
 exports.service = function (token, params, callback) {
 	var _clean = helpers.clean(params);
 	_clean.token = token;
-	helpers.request(urls.couponHost, urls.couponPath, _clean, callback);
+	helpers.request(urls.couponHost, urls.couponPath, _clean, false, callback);
 }

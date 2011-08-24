@@ -11,3 +11,6 @@ exports.merchantPath = '/productsearch';
 
 exports.targetedHost = 'feed.linksynergy.com';
 exports.targetedPath = '/target';
+
+exports.paymenthistoryHost = 'reportws.linksynergy.com';
+exports.paymenthistoryPath = '/downloadreport.php';

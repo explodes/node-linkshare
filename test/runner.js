@@ -2,7 +2,7 @@ var child = require('child_process');
 var fs = require('fs');
 var path = require('path');
 
-var defaultRegex = /^test_\w+\.js$/;
+var defaultRegex = /^[\w-]+-test\.js$/;
 
 function displayUsage() {
 	log(L.GUARANTEED, 'Usage: node test_runner.js [options] [directory]');

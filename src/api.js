@@ -2,11 +2,28 @@
  * Linkshare API
  */
 
-var services = require('./services/all')
+var services = require('./services')
    ;
 
-function LinkshareAPI (token) {
-	this.token = token;
+/**
+ * Simple Node.js LinkshareAPI Client.
+ * 
+ * new (require('node-linkshare))(apitoken, securitytoken?);
+ * 
+ * Create a new LinkshareAPI object that uses the provided API Token.
+ * Optionally, provide a security token to use secure services.
+ * 
+ * Most services take arguments in the form of:
+ * - params   :: Object
+ * - callback :: void Function(RequestError || Response error, String body, Response response) 
+ * 
+ * Exceptions to this rule are:
+ * api.link(String mid, String murl, callback);
+ * 
+ */
+function LinkshareAPI (apitoken, securitytoken) {
+	this.apitoken = apitoken;
+	this.securitytoken = securitytoken;
 }
 
 /**
@@ -57,7 +74,9 @@ function LinkshareAPI (token) {
  *  	To obtain numbers for categories, promotion types, and network values, 
  *  	send a request with just your Web Services token and 'promocat=1'
  */
-LinkshareAPI.prototype.coupon = function (params, callback) {services.coupon(this.token, params, callback)};
+LinkshareAPI.prototype.coupon = function (params, callback) {
+	services.coupon(this.apitoken, params, callback)
+};
 
 /**
  * Link Generator Web Service.
@@ -74,7 +93,9 @@ LinkshareAPI.prototype.coupon = function (params, callback) {services.coupon(thi
  * 		The URL is the landing page on the merchant's site. Special characters
  * 		do not need to be encoded.
  */
-LinkshareAPI.prototype.link = function (mid, murl, callback) {services.link(this.token, mid, murl, callback)};
+LinkshareAPI.prototype.link = function (mid, murl, callback) {
+	services.link(this.apitoken, mid, murl, callback)
+};
 
 /**
  * Mechant Query API
@@ -124,7 +145,9 @@ LinkshareAPI.prototype.link = function (mid, murl, callback) {services.link(this
  *			categoryname
  *			mid
  */
-LinkshareAPI.prototype.merchant = function (params, callback) {services.merchant(this.token, params, callback)};
+LinkshareAPI.prototype.merchant = function (params, callback) {
+	services.merchant(this.apitoken, params, callback)
+};
 
 /**
  * Targeted Merchandiser API
@@ -158,6 +181,36 @@ LinkshareAPI.prototype.merchant = function (params, callback) {services.merchant
  * 		available, then the keywords for your category will be used for
  * 		selection.
  */
-LinkshareAPI.prototype.targeted = function (params, callback) {services.targeted(this.token, params, callback)};
+LinkshareAPI.prototype.targeted = function (params, callback) {
+	services.targeted(this.apitoken, params, callback)
+};
+
+/**
+ * Payment History Summary API
+ * 
+ * http://helpcenter.linkshare.com/publisher/getattachment.php?data=MTExOXxVc2luZyBXZWIgU2VydmljZXMgZm9yIFBheW1lbnQgUmVwb3J0cy5wZGY%3D
+ * 
+ * Parameters:
+ * 
+ * 	- bdate - Date || "YYYYMMDD"
+ * 		The start date for the report you would like to generate.
+ * 
+ * 	- edate - Date || "YYYYMMDD"
+ * 		The end date for the report you would like to generate.
+ * 
+ * 	- nid - int
+ * 		This field is optional, use it to specify the LinkShare Network you want
+ * 		to run a report for. If you don't include it, the report will be run for
+ * 		all networks. The possible values are nid=1 LinkShare US; nid=3 for
+ * 		LinkShare UK; nid=5	for LinkShare CA; and nid=54 for the Lead Advantage
+ * 		Network.
+ */
+LinkshareAPI.prototype.paymenthistory = function (params, callback) {
+	 var _params = {};
+	 for (var prop in params)
+		 _params[prop] = params[prop];
+	 _params.reportid = 1;
+	 services.paymenthistory(this.securitytoken, params, callback);
+}
 
 module.exports = LinkshareAPI;
