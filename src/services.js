@@ -16,5 +16,6 @@ module.exports = {
 	advertiserinfo     : require('./services/linklocator/advertiserinfo').service,
 	bannerlinks        : require('./services/linklocator/bannerlinks').service,
 	creativecategories : require('./services/linklocator/creativecategories').service,
+	drmlinks           : require('./services/linklocator/drmlinks').service,
 	textlinks          : require('./services/linklocator/textlinks').service
 }
