@@ -308,7 +308,7 @@ LinkshareAPI.prototype.advertiserinfo = function (parameter, type, callback) {
 }
 
 /**
- * Advertiser Info API
+ * Creative Categories API
  * 
  * http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
  * 
