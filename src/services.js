@@ -4,12 +4,13 @@
 
 module.exports = {
 	// STANDARD
-	coupon        : require('./services/coupon').service,
-	linkgenerator : require('./services/link').service,
-	merchant      : require('./services/merchant').service,
-	targeted      : require('./services/targeted').service,
+	coupon        : require('./services/standard/coupon').service,
+	linkgenerator : require('./services/standard/linkgenerator').service,
+	merchant      : require('./services/standard/merchantquery').service,
+	targeted      : require('./services/standard/targeted').service,
 	// SECURE
-	advertiserpayment : require('./services/advertiserpayment').service,
-	paymentdetail     : require('./services/paymentdetail'),
-	paymenthistory    : require('./services/paymenthistory').service
+	advertiserpayment : require('./services/secure/advertiserpayment').service,
+	paymentdetail     : require('./services/secure/paymentdetail').service,
+	paymenthistory    : require('./services/secure/paymenthistory').service
+	// LINKLOCATOR
 }

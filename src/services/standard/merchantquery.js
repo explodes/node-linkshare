@@ -104,8 +104,8 @@
 var qs = require('querystring')
    ;
 
-var helpers = require('./helpers')
-   ,urls    = require('./urls')
+var helpers = require('../helpers')
+   ,urls    = require('../urls')
    ;
 
 /**

@@ -50,8 +50,8 @@
  *     The [OFFER_ID] can also be found in the returned URL from the Automated LinkGenerator tool. It will appear between &offerid= and .1. In the example above, the [OFFER_ID] value, 999999, would be found as &offerid=999999.1. Paste this value in place of [OFFER_ID].
  */
 
-var helpers = require('./helpers')
-   ,urls    = require('./urls')
+var helpers = require('../helpers')
+   ,urls    = require('../urls')
    ;
 
 /**

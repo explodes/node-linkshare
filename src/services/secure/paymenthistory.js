@@ -15,8 +15,8 @@
  *
  */
 
-var helpers = require('./helpers')
-   ,urls    = require('./urls')
+var helpers = require('../helpers')
+   ,urls    = require('../urls')
    ;
 
 /**

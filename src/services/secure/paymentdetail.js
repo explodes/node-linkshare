@@ -13,8 +13,8 @@
  * "2/2/2011," "18:36:00," "34573," "Auto Parts Warehouse," "8323087," "WRE133-17323," "Antenna," "1," "14.42," "5.5179," "0," "4.5179," "UNKNOWN," "N/A," "4/25/2011"
  */
 
-var helpers = require('./helpers')
-   ,urls    = require('./urls')
+var helpers = require('../helpers')
+   ,urls    = require('../urls')
    ;
 
 /**

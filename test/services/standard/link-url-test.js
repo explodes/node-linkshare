@@ -1,6 +1,6 @@
 var unittest = require('reut');
 
-var settings = require('../testsettings');
+var settings = require('../../testsettings');
 
 var testNo = 0;
 function logTest(test) {
@@ -10,8 +10,8 @@ function logTest(test) {
 unittest.suite('link')
         .startup(function (fixture, done) {
         	// Called before EVERY test begins.
-        	fixture.module = require('../../src/services/link');
-        	fixture.urls = require('../../src/services/urls');
+        	fixture.module = require('../../../src/services/standard/linkgenerator');
+        	fixture.urls = require('../../../src/services/urls');
         	done();
         })
         .test('makeUrl', function (test, fixture) {

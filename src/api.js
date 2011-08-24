@@ -150,7 +150,7 @@ LinkshareAPI.prototype.linkgenerator = function (mid, murl, callback) {
  *			categoryname
  *			mid
  */
-LinkshareAPI.prototype.merchant = function (params, callback) {
+LinkshareAPI.prototype.merchantquery = function (params, callback) {
 	services.merchant(this.apitoken, params, callback)
 };
 

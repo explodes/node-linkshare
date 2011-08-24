@@ -24,8 +24,8 @@
  * "34290," "Auto Parts Warehouse," 1142851," "0," "0," "0," "289.8412," "4/25/2011"
  */
 
-var helpers = require('./helpers')
-   ,urls    = require('./urls')
+var helpers = require('../helpers')
+   ,urls    = require('../urls')
    ;
 
 /**

@@ -331,8 +331,8 @@
  * Make sure count parameter is 15 or less.
  */
 
-var helpers = require('./helpers')
-   ,urls    = require('./urls')
+var helpers = require('../helpers')
+   ,urls    = require('../urls')
    ;
 
 /**
