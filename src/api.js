@@ -98,8 +98,8 @@ LinkshareAPI.prototype.coupon = function (params, callback) {
  * 		The URL is the landing page on the merchant's site. Special characters
  * 		do not need to be encoded.
  */
-LinkshareAPI.prototype.link = function (mid, murl, callback) {
-	services.link(this.apitoken, mid, murl, callback)
+LinkshareAPI.prototype.linkgenerator = function (mid, murl, callback) {
+	services.linkgenerator(this.apitoken, mid, murl, callback)
 };
 
 /**
