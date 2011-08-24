@@ -332,7 +332,7 @@
  */
 
 var helpers = require('../helpers')
-   ,urls    = require('../urls')
+   ,urls    = require('./urls')
    ;
 
 /**

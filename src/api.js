@@ -31,6 +31,8 @@ function LinkshareAPI (apitoken, securitytoken) {
 	this.securitytoken = securitytoken;
 }
 
+// { STANDARD
+
 /**
  * Coupon Web Service.
  * 
@@ -190,6 +192,8 @@ LinkshareAPI.prototype.targeted = function (params, callback) {
 	services.targeted(this.apitoken, params, callback)
 };
 
+// { SECURE
+
 /**
  * Payment History Summary API
  * 
@@ -256,5 +260,9 @@ LinkshareAPI.prototype.advertiserpayment = function (payid, callback) {
 LinkshareAPI.prototype.paymentdetail = function (id, isInvoiceId, callback) {
 	 services.paymentdetail(this.securitytoken, id, isInvoiceId, callback);
 }
+
+// { LINK LOCATOR DIRECT
+
+
 
 module.exports = LinkshareAPI;

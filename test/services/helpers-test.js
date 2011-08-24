@@ -55,6 +55,28 @@ unittest.suite('helpers')
         	
         	test.equal(fixture.module.toYYYYMMDD(undefined), undefined);
         })
+        .test('toMMDDYYYY(new Date(2011, 0, 8)) => "01082011" (month is off-by-one)', function (test, fixture) {
+        	logTest(test);
+        	
+        	var date = new Date(2011, 0, 8);
+
+        	test.equal(fixture.module.toMMDDYYYY(date), '01082011');
+        })
+        .test('toMMDDYYYY("a") => "a"', function (test, fixture) {
+        	logTest(test);
+        	
+        	test.equal(fixture.module.toMMDDYYYY('a'), 'a');
+        })
+        .test('toMMDDYYYY(1) => 1', function (test, fixture) {
+        	logTest(test);
+        	
+        	test.equal(fixture.module.toMMDDYYYY(1), 1);
+        })
+        .test('toMMDDYYYY(undefined) => undefined', function (test, fixture) {
+        	logTest(test);
+        	
+        	test.equal(fixture.module.toMMDDYYYY(undefined), undefined);
+        })
         .test('clean({foo: new Date(2011, 0, 8)}) => {foo: "20110108"}', function (test, fixture) {
         	logTest(test);
         	

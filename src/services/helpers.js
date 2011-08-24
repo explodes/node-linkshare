@@ -27,6 +27,13 @@ function pad(string, char, length) {
 	}
 	return string;
 }
+
+function getYMD(value) {
+	var y = pad(value.getFullYear(), '0', 4);
+	var m = pad(value.getMonth() + 1, '0', 2);
+	var d = pad(value.getDate(), '0', 2);
+	return [y, m, d];
+}
 	
 /**
  * If the input is a Date, returns the date formated as YYYYMMDD.
@@ -35,10 +42,24 @@ function pad(string, char, length) {
 exports.toYYYYMMDD = function (value) {
 	// Stupid hack. (require('./src/services/helpers')).toYYYYMMDD(new Date); returns the date object if this line is just if (value instanceof Date)
 	if (typeof value == 'object' && value.getFullYear && value.getMonth && value.getDate) { 
-		var y = pad(value.getFullYear(), '0', 4);
-		var m = pad(value.getMonth() + 1, '0', 2);
-		var d = pad(value.getDate(), '0', 2);
-		return y + m + d;
+		var ymd = getYMD(value);
+		return ymd[0] + ymd[1] + ymd[2];
+	}
+	else {
+		return value;
+	}
+}
+
+/**
+ * If the input is a Date, returns the date formated as MMDDYYYY.
+ * Otherwise, echos the value.
+ */
+exports.toMMDDYYYY = function (value) {
+	// Stupid hack. (require('./src/services/helpers')).toYYYYMMDD(new Date); returns the date object if this line is just if (value instanceof Date)
+	if (typeof value == 'object' && value.getFullYear && value.getMonth && value.getDate) { 
+		var ymd = getYMD(value);
+		return ymd[1] + ymd[2] + ymd[0];
+		return m + d + y;
 	}
 	else {
 		return value;
