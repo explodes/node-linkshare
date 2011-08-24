@@ -1,3 +1,18 @@
+var linkshare = require('node-linkshare');
+
+var token = 'foo token';
+var secure_token = 'foo secure token';
+
+var api = new linkshare(token, secure_token);
+
+api.coupon({promocat: 1}, function (error, result) {console.log(error); console.log(result);});
+api.coupon({category: 582, resultsperpage: 500, pagenumber: 10}, function (error, result) {console.log(error); console.log(result);});
+
+api.link(4823, 'http://example.com/foo?id=12384fdlkCjk3', function (error, result) {console.log(error); console.log(result);});
+
+
+NOTE: APICallback means void Function(Object error, String result, HttpResponse response)
+
 /**
  * Coupon Web Service.
  * 
@@ -46,9 +61,7 @@
  *  	To obtain numbers for categories, promotion types, and network values, 
  *  	send a request with just your Web Services token and 'promocat=1'
  */
-LinkshareAPI.prototype.coupon = function (params, callback) {
-	services.coupon(this.apitoken, params, callback)
-};
+void coupon(Object params, APICallback callback)
 
 /**
  * Link Generator Web Service.
@@ -65,9 +78,7 @@ LinkshareAPI.prototype.coupon = function (params, callback) {
  * 		The URL is the landing page on the merchant's site. Special characters
  * 		do not need to be encoded.
  */
-LinkshareAPI.prototype.link = function (mid, murl, callback) {
-	services.link(this.apitoken, mid, murl, callback)
-};
+void link(Integer mid, String murl, APICallback callback)
 
 /**
  * Mechant Query API
@@ -117,9 +128,7 @@ LinkshareAPI.prototype.link = function (mid, murl, callback) {
  *			categoryname
  *			mid
  */
-LinkshareAPI.prototype.merchant = function (params, callback) {
-	services.merchant(this.apitoken, params, callback)
-};
+void merchant(Object params, APICallback callback)
 
 /**
  * Targeted Merchandiser API
@@ -153,9 +162,7 @@ LinkshareAPI.prototype.merchant = function (params, callback) {
  * 		available, then the keywords for your category will be used for
  * 		selection.
  */
-LinkshareAPI.prototype.targeted = function (params, callback) {
-	services.targeted(this.apitoken, params, callback)
-};
+void targeted(Object params, APICallback callback)
 
 /**
  * Payment History Summary API
@@ -177,9 +184,7 @@ LinkshareAPI.prototype.targeted = function (params, callback) {
  * 		LinkShare UK; nid=5	for LinkShare CA; and nid=54 for the Lead Advantage
  * 		Network.
  */
-LinkshareAPI.prototype.paymenthistory = function (params, callback) {
-	 services.paymenthistory(this.securitytoken, params, callback);
-}
+void paymenthistory(Object params, APICallback callback)
 
 /**
  * Advertiser Payments History API
@@ -188,13 +193,11 @@ LinkshareAPI.prototype.paymenthistory = function (params, callback) {
  * 
  * Parameters:
  * 
- * 	- payid
+ * 	- payid - String
  * 		This is the unique number that LinkShare assigns to every payment.
  * 		It can be retrieved from the Payment History Summary.
  */
-LinkshareAPI.prototype.advertiserpayment = function (payid, callback) {
-	 services.advertiserpayment(this.securitytoken, payid, callback);
-}
+void advertiserpayment(String payid, APICallback callback)
 
 /**
  * Payment Details Report API
@@ -220,6 +223,5 @@ LinkshareAPI.prototype.advertiserpayment = function (payid, callback) {
  *  	Whether or not the id specified is an invoice id.  If it is not, it is
  *  	assumed to be a payid.
  */
-LinkshareAPI.prototype.paymentdetail = function (id, isInvoiceId, callback) {
-	 services.paymentdetail(this.securitytoken, id, isInvoiceId, callback);
-}
+void paymentdetail(String id, Boolean isInvoiceId, APICallback callback)
+
