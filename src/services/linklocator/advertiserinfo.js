@@ -28,12 +28,12 @@ var helpers = require('../helpers')
  * mid
  */
 exports.service = function (token, parameter, type, callback) {
-	type = exports.getType(type);
+	type = exports.getRestTypeByAPIType(type);
 	var restUrl = urls.advertiserinfoPath + '/' + type + '/' + token + '/' + parameter;
 	helpers.request(urls.advertiserinfoHost, restUrl, undefined, false, callback);
 }
 
-exports.getType = function (type) {
+exports.getRestTypeByAPIType = function (type) {
 	if (type == 'mid')
 		return 'getMerchByID';
 	else if (type == 'name')

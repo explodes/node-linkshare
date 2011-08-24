@@ -11,7 +11,7 @@ unittest.suite('merchant')
         .startup(function (fixture, done) {
         	// Called before EVERY test begins.
         	fixture.module = require('../../../src/services/standard/merchantquery');
-        	fixture.urls = require('../../../src/services/urls');
+        	fixture.urls = require('../../../src/services/standard/urls');
         	done();
         })
         .test('makeUrl w/ keyword', function (test, fixture) {

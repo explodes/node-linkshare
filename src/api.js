@@ -292,7 +292,7 @@ LinkshareAPI.prototype.paymentdetail = function (id, isInvoiceId, callback) {
  *  temp rejected     - Your application to join this program has been temporarily rejected by the advertiser. You will be able to reapply after 14 days.
  *  wait              - Your application to join this program is pending approval from the advertiser.
  */
-LinshareAPI.prototype.advertiserinfo = function (parameter, type, callback) {
+LinkshareAPI.prototype.advertiserinfo = function (parameter, type, callback) {
 	services.advertiserinfo(this.apitoken, parameter, type, callback);
 }
 

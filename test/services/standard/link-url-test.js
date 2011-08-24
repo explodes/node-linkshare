@@ -11,7 +11,7 @@ unittest.suite('link')
         .startup(function (fixture, done) {
         	// Called before EVERY test begins.
         	fixture.module = require('../../../src/services/standard/linkgenerator');
-        	fixture.urls = require('../../../src/services/urls');
+        	fixture.urls = require('../../../src/services/standard/urls');
         	done();
         })
         .test('makeUrl', function (test, fixture) {
