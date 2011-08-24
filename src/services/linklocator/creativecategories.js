@@ -12,16 +12,14 @@
  * 
  * catId
  * 	The Creative Category ID that is assigned by the advertiser.
- * 	numeric
  * catName
  * 	The category name the advertiser.
- * 	string
  * mid
  * 	This is the LinkShare advertiser ID.
- * 	numeric
  * nid
  * 	The Network ID, as shown in this table
- * 	numeric
+ * 
+ * Please note: all the elements in LinkLocator responses include Ôns1:Õ as a prefix.
  */
 
 var helpers = require('../helpers')

@@ -91,6 +91,8 @@
  * 		Start date for the banner, formatted: Mon DD, YYYY (eg, Dec 31, 2009)
  * width
  * 		Width of banner in pixels
+ * 
+ * Please note: all the elements in LinkLocator responses include Ôns1:Õ as a prefix.
  */
 
 var helpers = require('../helpers')

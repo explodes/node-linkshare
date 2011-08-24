@@ -61,6 +61,8 @@
  *  offerName
  *  	The name of the advertiser’s offer you are participating in.
  *  	string
+ *  
+ *  Please note: all the elements in LinkLocator responses include ‘ns1:’ as a prefix.
  */
 
 var helpers = require('../helpers')

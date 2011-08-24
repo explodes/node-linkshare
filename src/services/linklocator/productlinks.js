@@ -1,22 +1,23 @@
 /**
  * http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
  * 
- * DRM Links API
+ * Product Links API
  * 
- * This feed gives you the available DRM links. To obtain specific DRM links,
- * you can filter it using these parameters: MID, Category, Start Date, and
- * End Date.
+ * This request gives you the various Individual Product links that are 
+ * available. To obtain specific individual product links, you can filter it
+ * using the following parameters: MID and Category.
  * 
  * RESPONSE:
  * 
  * campaignID
  * 		This feature was retired in August 2011.
  * categoryID
- * 		The Creative Category ID for this DRM; assigned by the advertiser. Use
+ * 		The Creative Category ID for this link; assigned by the advertiser. Use
  * 		the Creative Category feed to obtain it (not the Advertiser Category
  * 		Table listed in the Publisher Help Center).
  * categoryName
- * 		The category name for the product or service promoted by this DRM link
+ * 		The category name for the product or service promoted by this Individual
+ * 		Product Link
  * linkID
  * 		The LinkShare-assigned ID for the link
  * linkName
@@ -24,23 +25,13 @@
  * mid
  * 		The LinkShare advertiser ID
  * nid
- * 		The network ID, as drawn from this table
- * code
- * 		The URL that directs to the JavaScript for the DRM
- * endDate
- * 		End date for the DRM link, formatted: Mon DD, YYYY (eg, Dec 31, 2009)
- * height
- * 		Height of DRM in pixels
- * servertype
- * 		The banner host, either 4 (LinkShare) or 22 (advertiser)
+ * 		The network ID, as shown in this table.
+ * clickURL
+ * 		Click link that contains LinkShare tracking info
+ * iconURL
+ * 		The link to the product image
  * showURL
  * 		1X1 pixel URL for impression tracking
- * size
- * 		The size code, as drawn from this table
- * startDate
- * 		Start date for the DRM link, formatted: Mon DD, YYYY (eg, Dec 31, 2009)
- * width
- * 		Width of DRM in pixels
  * 
  * Please note: all the elements in LinkLocator responses include Ôns1:Õ as a prefix.
  */
@@ -52,22 +43,18 @@ var helpers = require('../helpers')
 /**
  * mid
  * category
- * start
- * end
  * page
  */
 exports.service = function (token, parameters, callback) {
 	var restPath = exports.getRestPath(token, parameters);
-	helpers.request(urls.drmlinksHost, restPath, undefined, false, callback);
+	helpers.request(urls.productlinksHost, restPath, undefined, false, callback);
 }
 
 exports.getRestPath = function (token, parameters) {
-	return urls.drmlinksPath + 
+	return urls.productlinksPath + 
 			'/' + token + 
 			'/' + (parameters.mid != undefined ? parameters.mid : '-1') +
 			'/' + (parameters.category != undefined ? parameters.category : '-1') +
-			'/' + (parameters.start != undefined ? helpers.toMMDDYYYY(parameters.start) : '') +
-			'/' + (parameters.end != undefined ? helpers.toMMDDYYYY(parameters.end) : '') +
 			'/-1' + // campaignID defunct as of August 2011
 			'/' + (parameters.page != undefined ? parameters.page : '1');
 }

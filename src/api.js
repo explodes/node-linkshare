@@ -24,6 +24,7 @@ var services = require('./services')
  *  api.textlinks(Object params, Function callback)
  *  api.bannerlinks(Object params, Function callback)
  *  api.drmlinks(Object params, Function callback)
+ *  api.productlinks(Object params, Function callback)
  * 
  * Exceptions to this rule are:
  * 
@@ -443,5 +444,28 @@ LinkshareAPI.prototype.drmlinks = function (params, callback) {
 	services.drmlinks(this.apitoken, params, callback);
 }
 
+/**
+ * Product Links API
+ * 
+ * http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
+ * 
+ * Parameters:
+ * 
+ * 	- mid      - Integer
+ * 		This is the optional LinkShare Advertiser ID
+ * 
+ *	- category - Integer
+ *		This is the optional Creative Category ID. It is assigned by the
+ *		advertiser. Use the Creative Category feed to obtain it (not the
+ *		Advertiser Category Table listed in the Publisher Help Center).
+ *
+ *	- page     - Integer
+ *		This is the optional page number of the results. On queries with a large number
+ *		of results, the system returns 10,000 results per page. This parameter
+ *		helps you organize them.
+ */
+LinkshareAPI.prototype.productlinks = function (params, callback) {
+	services.productlinks(this.apitoken, params, callback);
+}
 
 module.exports = LinkshareAPI;

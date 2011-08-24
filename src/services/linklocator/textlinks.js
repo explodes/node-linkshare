@@ -37,6 +37,8 @@
  * 		Start date for the text link, formatted: Mon DD, YYYY (eg, Dec 31, 2009)
  * textDisplay
  * 		The link’s copy, eg, “15% off now at Advertiser!”
+ * 
+ * Please note: all the elements in LinkLocator responses include ‘ns1:’ as a prefix.
  */
 
 var helpers = require('../helpers')
