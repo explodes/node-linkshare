@@ -75,7 +75,7 @@ var helpers = require('../helpers')
  */
 exports.service = function (token, parameter, type, callback) {
 	type = exports.getRestTypeByAPIType(type);
-	var restUrl = urls.advertiserinfoPath + '/' + type + '/' + token + '/' + parameter;
+	var restUrl = urls.advertiserinfoPath + '/' + type + '/' + token + '/' + parameter.toString().replace(new RegExp(' ', 'g'), '%20');
 	helpers.request(urls.advertiserinfoHost, restUrl, undefined, false, callback);
 }
 
