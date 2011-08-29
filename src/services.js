@@ -4,7 +4,7 @@
 
 module.exports = {
 	// STANDARD
-	coupon        : require('./services/standard/coupon').service,
+	coupons       : require('./services/standard/coupons').service,
 	linkgenerator : require('./services/standard/linkgenerator').service,
 	merchant      : require('./services/standard/merchantquery').service,
 	targeted      : require('./services/standard/targeted').service,
