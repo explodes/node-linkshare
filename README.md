@@ -430,55 +430,58 @@ Size code	Width	Height	Name
 23			112		20		Small  
 24			0		0		Other  
 
+### DRM Links API
 
-/**
- * DRM Links API
- * 
- * http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
- * 
- * Parameters:
- * 
- * 	- mid      - Integer
- * 		This is the optional LinkShare Advertiser ID
- * 
- *	- category - Integer
- *		This is the optional Creative Category ID. It is assigned by the
- *		advertiser. Use the Creative Category feed to obtain it (not the
- *		Advertiser Category Table listed in the Publisher Help Center).
- *
- *	- start    - Date || String
- *		This is the optional start date for the creative, formatted MMDDYYYY.
- *
- *	- end      - Date || String
- *		This is the optional end date for the creative, formatted MMDDYYYY.
- *
- *	- page     - Integer
- *		This is the optional page number of the results. On queries with a large number
- *		of results, the system returns 10,000 results per page. This parameter
- *		helps you organize them.
- */
 	void drmlinks(Object params, APICallback callback)
 
-/**
- * Product Links API
- * 
- * http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
- * 
- * Parameters:
- * 
- * 	- mid      - Integer
- * 		This is the optional LinkShare Advertiser ID
- * 
- *	- category - Integer
- *		This is the optional Creative Category ID. It is assigned by the
- *		advertiser. Use the Creative Category feed to obtain it (not the
- *		Advertiser Category Table listed in the Publisher Help Center).
- *
- *	- page     - Integer
- *		This is the optional page number of the results. On queries with a large number
- *		of results, the system returns 10,000 results per page. This parameter
- *		helps you organize them.
- */
+http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
+
+Parameters:
+
+* mid      - Integer
+
+  This is the optional LinkShare Advertiser ID
+
+* category - Integer
+
+  This is the optional Creative Category ID. It is assigned by the
+  advertiser. Use the Creative Category feed to obtain it (not the
+  Advertiser Category Table listed in the Publisher Help Center).
+
+* start    - Date || String
+
+  This is the optional start date for the creative, formatted MMDDYYYY.
+
+* end      - Date || String
+
+  This is the optional end date for the creative, formatted MMDDYYYY.
+
+* page     - Integer
+
+  This is the optional page number of the results. On queries with a large number
+  of results, the system returns 10,000 results per page. This parameter
+  helps you organize them.
+
+### Product Links API
+
 	void productlinks(Object params, APICallback callback)
 
+http://helpcenter.linkshare.com/publisher/getattachment.php?data=NTh8TGlua0xvY2F0b3IgRGlyZWN0IElJXyBSRVNUXzQuMS5wZGY%3D
 
+Parameters:
+
+* mid      - Integer
+
+  This is the optional LinkShare Advertiser ID
+
+* category - Integer
+
+  This is the optional Creative Category ID. It is assigned by the
+  advertiser. Use the Creative Category feed to obtain it (not the
+  Advertiser Category Table listed in the Publisher Help Center).
+
+* page     - Integer
+
+  This is the optional page number of the results. On queries with a large number
+  of results, the system returns 10,000 results per page. This parameter
+  helps you organize them.
