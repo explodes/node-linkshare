@@ -18,7 +18,7 @@ NOTE: APICallback means void Function(Object error, String result, HttpResponse 
  * - params   :: Object
  * - callback :: void Function(RequestError || Response error, String body, Response response) 
  * e.g.
- *  api.coupon(Object params, Function callback)
+ *  api.coupons(Object params, Function callback)
  *  api.merchantquery(Object params, Function callback)
  *  api.targeted(Object params, Function callback)
  *  api.paymenthistory(Object params, Function callback) *
@@ -89,7 +89,7 @@ NOTE: APICallback means void Function(Object error, String result, HttpResponse 
  *  	To obtain numbers for categories, promotion types, and network values, 
  *  	send a request with just your Web Services token and 'promocat=1'
  */
-void coupon(Object params, APICallback callback)
+void coupons(Object params, APICallback callback)
 
 /**
  * Link Generator Web Service.

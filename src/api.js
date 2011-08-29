@@ -17,7 +17,7 @@ var services = require('./services')
  * - params   :: Object
  * - callback :: void Function(RequestError || Response error, String body, Response response) 
  * e.g.
- *  api.coupon(Object params, Function callback)
+ *  api.coupons(Object params, Function callback)
  *  api.merchantquery(Object params, Function callback)
  *  api.targeted(Object params, Function callback)
  *  api.paymenthistory(Object params, Function callback) *
@@ -92,8 +92,8 @@ function LinkshareAPI (apitoken, securitytoken) {
  *  	To obtain numbers for categories, promotion types, and network values, 
  *  	send a request with just your Web Services token and 'promocat=1'
  */
-LinkshareAPI.prototype.coupon = function (params, callback) {
-	services.coupon(this.apitoken, params, callback)
+LinkshareAPI.prototype.coupons = function (params, callback) {
+	services.coupons(this.apitoken, params, callback)
 };
 
 /**
