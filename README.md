@@ -37,21 +37,22 @@ e.g.
 	api.coupons(Object params, Function callback)
 	api.merchantquery(Object params, Function callback)
 	api.targeted(Object params, Function callback)
-	api.paymenthistory(Object params, Function callback) *
+	api.paymenthistory(Object params, Function callback)  
 	api.textlinks(Object params, Function callback)
 	api.bannerlinks(Object params, Function callback)
 	api.drmlinks(Object params, Function callback)
 	api.productlinks(Object params, Function callback)
+	api.signatureorderreport(Object params, Function callback)
 	
 Exceptions to this rule are:
 	
 	api.linkgenerator(String mid, String murl, Function callback)
-	api.advertiserpayments(String payid, Function callback) *
-	api.paymentdetail(String id, boolean isInvoiceId, Function callback) *
+	api.advertiserpayments(String payid, Function callback)  
+	api.paymentdetail(String id, boolean isInvoiceId, Function callback)  
 	api.advertiserinfo(String || Integer parameter, String type, Function callback) 
 	api.creativecategories(Integer mid, Function callback)
 	
-* indicates that securetoken is required to use.
+  indicates that securetoken is required to use.
  
 ## FOR MORE DETAILS SEE THE INDIVIDUAL SERVICE MODULE FOR A COPY OF THE API SPEC
 
@@ -485,3 +486,48 @@ Parameters:
   This is the optional page number of the results. On queries with a large number
   of results, the system returns 10,000 results per page. This parameter
   helps you organize them.
+  
+### Signature Order Report API
+
+	void signatureorderreport(Object params, APICallback callback)
+
+http://helpcenter.linkshare.com/publisher/questions.php?questionid=780
+
+Parameters:
+
+* bdate    - Date || String
+
+  The begin date for the report you would like to generate, in YYYYMMDD
+  format, based on process date (the date a transaction is processed 
+  through the LinkShare system).
+
+* edate   - Date || String
+
+  The end date for the report you would like to generate, in YYYYMMDD
+  format, based on process date.
+
+* cuserid - String
+
+  The user name that you use to access your publisher channel.
+
+* cpi     - String
+
+  The password that you use to access your publisher channel.
+
+* eid     - String
+
+  This is the LinkShare-assigned ID for your publisher channel; if you
+  only have one channel you do not need to supply a value for this field.
+  Your eid (also called affiliate ID) is the unique 11-character code that
+  tells LinkShare which publisher a click came from. It can be found in
+  any of your links:
+  http://click.linksynergy.com/fs-bin/click?id=lmf2Xiq9yN9&offerid=176538.10016078&type=3&subid=0
+
+* nid      - Integer
+
+  This is the network ID. If you only belong to one network you do not
+  need to supply a value for this field. However, if you belong to more
+  than one network, you must supply a value for it. The system can only
+  send data for one network at at time. Please note: requesting data for a
+  network you are not in will return an error message.
+

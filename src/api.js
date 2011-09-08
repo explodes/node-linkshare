@@ -20,21 +20,22 @@ var services = require('./services')
  *  api.coupons(Object params, Function callback)
  *  api.merchantquery(Object params, Function callback)
  *  api.targeted(Object params, Function callback)
- *  api.paymenthistory(Object params, Function callback) *
+ *  api.paymenthistory(Object params, Function callback)  
  *  api.textlinks(Object params, Function callback)
  *  api.bannerlinks(Object params, Function callback)
  *  api.drmlinks(Object params, Function callback)
  *  api.productlinks(Object params, Function callback)
+ *  api.signatureorderreport(Object params, Function callback)
  * 
  * Exceptions to this rule are:
  * 
  * api.linkgenerator(String mid, String murl, Function callback)
- * api.advertiserpayments(String payid, Function callback) *
- * api.paymentdetail(String id, boolean isInvoiceId, Function callback) *
+ * api.advertiserpayments(String payid, Function callback)  
+ * api.paymentdetail(String id, boolean isInvoiceId, Function callback)  
  * api.advertiserinfo(String || Integer parameter, String type, Function callback) 
  * api.creativecategories(Integer mid, Function callback)
  * 
- * * indicates that securetoken is required to use.
+ *   indicates that securetoken is required to use.
  * 
  */
 function LinkshareAPI (apitoken, securitytoken) {
@@ -93,7 +94,7 @@ function LinkshareAPI (apitoken, securitytoken) {
  *  	send a request with just your Web Services token and 'promocat=1'
  */
 LinkshareAPI.prototype.coupons = function (params, callback) {
-	services.coupons(this.apitoken, params, callback)
+	services.coupons (this.apitoken, params, callback)
 };
 
 /**
@@ -112,7 +113,7 @@ LinkshareAPI.prototype.coupons = function (params, callback) {
  * 		do not need to be encoded.
  */
 LinkshareAPI.prototype.linkgenerator = function (mid, murl, callback) {
-	services.linkgenerator(this.apitoken, mid, murl, callback)
+	services.linkgenerator (this.apitoken, mid, murl, callback)
 };
 
 /**
@@ -164,7 +165,7 @@ LinkshareAPI.prototype.linkgenerator = function (mid, murl, callback) {
  *			mid
  */
 LinkshareAPI.prototype.merchantquery = function (params, callback) {
-	services.merchant(this.apitoken, params, callback)
+	services.merchant (this.apitoken, params, callback)
 };
 
 /**
@@ -200,7 +201,7 @@ LinkshareAPI.prototype.merchantquery = function (params, callback) {
  * 		selection.
  */
 LinkshareAPI.prototype.targeted = function (params, callback) {
-	services.targeted(this.apitoken, params, callback)
+	services.targeted (this.apitoken, params, callback)
 };
 
 // { SECURE
@@ -226,7 +227,7 @@ LinkshareAPI.prototype.targeted = function (params, callback) {
  * 		Network.
  */
 LinkshareAPI.prototype.paymenthistory = function (params, callback) {
-	 services.paymenthistory(this.securitytoken, params, callback);
+	 services.paymenthistory (this.securitytoken, params, callback);
 }
 
 /**
@@ -241,7 +242,7 @@ LinkshareAPI.prototype.paymenthistory = function (params, callback) {
  * 		It can be retrieved from the Payment History Summary.
  */
 LinkshareAPI.prototype.advertiserpayment = function (payid, callback) {
-	 services.advertiserpayment(this.securitytoken, payid, callback);
+	 services.advertiserpayment (this.securitytoken, payid, callback);
 }
 
 /**
@@ -269,7 +270,7 @@ LinkshareAPI.prototype.advertiserpayment = function (payid, callback) {
  *  	assumed to be a payid.
  */
 LinkshareAPI.prototype.paymentdetail = function (id, isInvoiceId, callback) {
-	 services.paymentdetail(this.securitytoken, id, isInvoiceId, callback);
+	 services.paymentdetail (this.securitytoken, id, isInvoiceId, callback);
 }
 
 // { LINK LOCATOR DIRECT
@@ -304,7 +305,7 @@ LinkshareAPI.prototype.paymentdetail = function (id, isInvoiceId, callback) {
  *  wait              - Your application to join this program is pending approval from the advertiser.
  */
 LinkshareAPI.prototype.advertiserinfo = function (parameter, type, callback) {
-	services.advertiserinfo(this.apitoken, parameter, type, callback);
+	services.advertiserinfo (this.apitoken, parameter, type, callback);
 }
 
 /**
@@ -319,7 +320,7 @@ LinkshareAPI.prototype.advertiserinfo = function (parameter, type, callback) {
  * 
  */
 LinkshareAPI.prototype.creativecategories = function (mid, callback) {
-	services.creativecategories(this.apitoken, mid, callback);
+	services.creativecategories (this.apitoken, mid, callback);
 }
 
 /**
@@ -349,7 +350,7 @@ LinkshareAPI.prototype.creativecategories = function (mid, callback) {
  *		helps you organize them.
  */
 LinkshareAPI.prototype.textlinks = function (params, callback) {
-	services.textlinks(this.apitoken, params, callback);
+	services.textlinks (this.apitoken, params, callback);
 }
 
 /**
@@ -411,7 +412,7 @@ LinkshareAPI.prototype.textlinks = function (params, callback) {
  * 24			0		0		Other
  */
 LinkshareAPI.prototype.bannerlinks = function (params, callback) {
-	services.bannerlinks(this.apitoken, params, callback);
+	services.bannerlinks (this.apitoken, params, callback);
 }
 
 /**
@@ -441,7 +442,7 @@ LinkshareAPI.prototype.bannerlinks = function (params, callback) {
  *		helps you organize them.
  */
 LinkshareAPI.prototype.drmlinks = function (params, callback) {
-	services.drmlinks(this.apitoken, params, callback);
+	services.drmlinks (this.apitoken, params, callback);
 }
 
 /**
@@ -465,7 +466,48 @@ LinkshareAPI.prototype.drmlinks = function (params, callback) {
  *		helps you organize them.
  */
 LinkshareAPI.prototype.productlinks = function (params, callback) {
-	services.productlinks(this.apitoken, params, callback);
+	services.productlinks (this.apitoken, params, callback);
+}
+
+/**
+ * Signature Order Report API
+ * 
+ * http://helpcenter.linkshare.com/publisher/questions.php?questionid=780
+ * 
+ * Parameters:
+ * 
+ * 	bdate   - Date || String
+ * 		The begin date for the report you would like to generate, in YYYYMMDD
+ * 		format, based on process date (the date a transaction is processed 
+ * 		through the LinkShare system).
+ *
+ * 	edate   - Date || String
+ * 		The end date for the report you would like to generate, in YYYYMMDD
+ * 		format, based on process date.
+ *
+ * 	cuserid - String
+ * 		The user name that you use to access your publisher channel.
+ *
+ * 	cpi     - String
+ * 		The password that you use to access your publisher channel.
+ *
+ * 	eid     - String
+ * 		This is the LinkShare-assigned ID for your publisher channel; if you
+ * 		only have one channel you do not need to supply a value for this field.
+ * 		Your eid (also called affiliate ID) is the unique 11-character code that
+ * 		tells LinkShare which publisher a click came from. It can be found in
+ * 		any of your links:
+ * 		http://click.linksynergy.com/fs-bin/click?id=lmf2Xiq9yN9&offerid=176538.10016078&type=3&subid=0
+ *
+ * 	nid     - Integer 
+ * 		This is the network ID. If you only belong to one network you do not
+ * 		need to supply a value for this field. However, if you belong to more
+ * 		than one network, you must supply a value for it. The system can only
+ * 		send data for one network at at time. Please note: requesting data for a
+ * 		network you are not in will return an error message.
+ */
+LinkshareAPI.prototype.signatureorderreport = function (params, callback) {
+	services.signatureorderreport (params, callback);
 }
 
 module.exports = LinkshareAPI;
