@@ -20,5 +20,5 @@ module.exports = {
 	productlinks       : require('./linklocator/productlinks').service,
 	textlinks          : require('./linklocator/textlinks').service,
 	// SIGNATURE ORDER
-	signatureorderreport : require('./signatureorderreport/signatureorderreport')
+	signatureorderreport : require('./signatureorderreport/signatureorderreport').service
 }
